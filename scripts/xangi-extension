@@ -1,0 +1,8 @@
+#!/bin/sh
+# xangi 本体が Managed Extension として起動するエントリポイント。
+# 例: scripts/xangi-extension serve --workspace /path/to/workspace
+# 標準ライブラリだけで動くため venv は使わず、システムの python3 で server/runtime.py を実行する。
+set -eu
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+repo_dir=$(CDPATH= cd -- "$script_dir/.." && pwd)
+exec python3 "$repo_dir/server/runtime.py" "$@"

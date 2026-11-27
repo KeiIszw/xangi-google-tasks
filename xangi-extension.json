@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 2,
+  "id": "xangi-google-tasks",
+  "displayName": "xangi-google-tasks",
+  "description": "Lets an Even G2 app view and edit Google Tasks through the parent xangi device ingress.",
+  "permissions": [
+    "accept authenticated Even G2 requests through the parent xangi device ingress",
+    "run the local gog CLI to read and modify Google Tasks",
+    "send recorded G2 audio to the Groq speech-to-text API",
+    "read server/.env for local settings"
+  ],
+  "version": "0.1.0",
+  "entrypoint": "scripts/xangi-extension",
+  "runtime": { "kind": "managed-http" },
+  "setup": { "instructions": "XANGI_SETUP.md" },
+  "capabilities": [
+    { "id": "device.google-tasks", "protocol": "http", "healthPath": "/health" }
+  ],
+  "deviceIngress": {
+    "capability": "device.google-tasks",
+    "authentication": "extension-bearer"
+  }
+}

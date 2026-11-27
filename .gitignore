@@ -1,0 +1,7 @@
+server/.env
+__pycache__/
+g2/node_modules/
+g2/dist/
+*.ehpk
+g2/app.configured.json
+g2/.env.local
